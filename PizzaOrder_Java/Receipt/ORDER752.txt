@@ -1,0 +1,38 @@
+       Pizza Sing Sang Song
+
+ Address: 1430 Trafalgar Road
+          Oakville, Ontario L6H 2L1
+ Phone Number: 905-845-9430
+ Employee Name: admin
+ Employee ID: 123456789
+-----------------------------------------
+ Order Option: Pick Up
+ Customer Name: dsaf sdafsdaf
+ Customer Phone Number: sdfa
+ Customer Address: sadfsdf
+ Order Time: 2015.5.29 21:33:17
+ Complete Time: 2015.5.29 22:3:17
+=======================================
+ Product             Qty        Price
+=======================================
+Pizza 1
+ Small                          $ 5.00
+ Whole-Wheat                    $ 4.00
+ Pepperoni Whole                $ 1.50
+ Garlic Whole                   $ 1.00
+ Pineapple Whole                $ 1.00
+ Olive Extra Left               $ 1.50
+                             ----------
+Pizza Price                    $ 14.00
+Pizza 2
+ Medium                         $ 6.00
+ Stuffed Crust                  $ 5.00
+ Garlic Whole                   $ 1.00
+ Ham Whole                      $ 1.50
+ Olive Right                    $ 1.00
+                             ----------
+Pizza Price                    $ 14.50
+=======================================
+ SubTotal                      $ 28.50
+ HST                           $  3.71
+ Total                         $ 32.21

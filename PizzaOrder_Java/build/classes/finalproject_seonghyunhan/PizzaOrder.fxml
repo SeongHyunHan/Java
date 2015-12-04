@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="869.0" prefWidth="655.0" stylesheets="@Pizza.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject_seonghyunhan.PizzaOrderController">
+   <children>
+      <SplitPane dividerPositions="0.122040072859745" layoutX="211.0" layoutY="166.0" orientation="VERTICAL" prefHeight="551.0" prefWidth="601.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <StackPane layoutX="178.0" layoutY="-51.0" prefHeight="64.0" prefWidth="599.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Pizza Order">
+                           <font>
+                              <Font name="EucrosiaUPC Italic" size="90.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="102.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
+                           <StackPane.margin>
+                              <Insets left="550.0" />
+                           </StackPane.margin>
+                           <image>
+                              <Image url="@../image/pizza.png" />
+                           </image>
+                        </ImageView>
+                     </children></StackPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <BorderPane layoutX="156.0" layoutY="124.0" prefHeight="479.0" prefWidth="599.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <top>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <items>
+                              <Button fx:id="sideDishnDrink" mnemonicParsing="false" onAction="#sdButtonAction" text="SideDish&amp;Drink" />
+                              <Button fx:id="orderSubmit" mnemonicParsing="false" onAction="#orderButtonAction" text="Order!" />
+                              <Label fx:id="alertOrder" text="* No order Placed!" textFill="RED" visible="false">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                          </items>
+                        </ToolBar>
+                     </top>
+                     <center>
+                        <FlowPane prefHeight="680.0" prefWidth="399.0" BorderPane.alignment="CENTER_LEFT">
+                           <children>
+                              <Label text="Size">
+                                 <font>
+                                    <Font name="Elephant" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="alertSize" text="*Please Select Size" textFill="RED" visible="false">
+                                 <FlowPane.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </FlowPane.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Separator prefHeight="9.0" prefWidth="473.0" />
+                              <GridPane prefHeight="21.0" prefWidth="347.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="78.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="94.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="78.0" minWidth="10.0" prefWidth="75.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="91.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <RadioButton fx:id="small" mnemonicParsing="false" text="Small" />
+                                    <RadioButton fx:id="medium" mnemonicParsing="false" text="Medium" GridPane.columnIndex="1" />
+                                    <RadioButton fx:id="large" mnemonicParsing="false" text="Large" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="X-Large" GridPane.columnIndex="3" fx:id="xlarge" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <FlowPane.margin>
+                                    <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+                                 </FlowPane.margin>
+                              </GridPane>
+                              <Separator prefHeight="0.0" prefWidth="474.0" />
+                              <Label text="Crust">
+                                 <font>
+                                    <Font name="Elephant" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="alertCrust" text="*Please Select Crust" textFill="RED" visible="false">
+                                 <FlowPane.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </FlowPane.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Separator prefHeight="0.0" prefWidth="473.0" />
+                              <GridPane prefHeight="25.0" prefWidth="346.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="67.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="106.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="120.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <FlowPane.margin>
+                                    <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+                                 </FlowPane.margin>
+                                 <children>
+                                    <RadioButton fx:id="plain" mnemonicParsing="false" text="Plain" />
+                                    <RadioButton fx:id="wheat" mnemonicParsing="false" text="Whole-wheat" GridPane.columnIndex="1" />
+                                    <RadioButton fx:id="stuffedcrust" mnemonicParsing="false" text="Stuffed Crust" GridPane.columnIndex="2" />
+                                 </children>
+                              </GridPane>
+                              <Separator prefHeight="1.0" prefWidth="474.0" />
+                              <Label text="Toppings">
+                                 <font>
+                                    <Font name="Elephant" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Separator prefHeight="1.0" prefWidth="473.0" />
+                              <GridPane prefHeight="509.0" prefWidth="449.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="10.0" prefWidth="63.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="27.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.0" minWidth="10.0" prefWidth="44.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="121.0" minWidth="10.0" prefWidth="86.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="81.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="79.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Pepperoni" GridPane.rowIndex="1" />
+                                    <Label text="Sausage" GridPane.rowIndex="2" />
+                                    <Label text="Garlic" GridPane.rowIndex="3" />
+                                    <Label text="Pineapple" GridPane.rowIndex="4" />
+                                    <Label text="Ham" GridPane.rowIndex="5" />
+                                    <Label text="Olive" GridPane.rowIndex="6" />
+                                    <Label text="Mushroom" GridPane.rowIndex="7" />
+                                    <Label text="Whole" GridPane.columnIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Right" GridPane.columnIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="25.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <CheckBox fx:id="pepperoni" mnemonicParsing="false" onAction="#pepperoniSelected" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="sausage" mnemonicParsing="false" onAction="#sausageSelected" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="garlic" mnemonicParsing="false" onAction="#garlicSelected" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="pineapple" mnemonicParsing="false" onAction="#pinappleSelected" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="ham" mnemonicParsing="false" onAction="#hamSelected" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="olive" mnemonicParsing="false" onAction="#oliveSelected" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="mushroom" mnemonicParsing="false" onAction="#mushroomSelected" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <Label text="Left" GridPane.columnIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <RadioButton fx:id="pepLeft" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="pepWhole" disable="true" layoutX="156.0" layoutY="69.0" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="pepRight" disable="true" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="sausageLeft" disable="true" layoutX="156.0" layoutY="69.0" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="sausageWhole" disable="true" layoutX="156.0" layoutY="114.0" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="sausageRight" disable="true" layoutX="226.0" layoutY="114.0" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="garWhole" disable="true" layoutX="156.0" layoutY="159.0" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="garRight" disable="true" layoutX="226.0" layoutY="159.0" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="garLeft" disable="true" layoutX="156.0" layoutY="114.0" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="pineLeft" disable="true" layoutX="156.0" layoutY="159.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="pineWhole" disable="true" layoutX="156.0" layoutY="204.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="pineRight" disable="true" layoutX="226.0" layoutY="204.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="hamLeft" disable="true" layoutX="156.0" layoutY="204.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="hamWhole" disable="true" layoutX="156.0" layoutY="249.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="hamRight" disable="true" layoutX="156.0" layoutY="249.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="oliveLeft" disable="true" layoutX="156.0" layoutY="249.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="oliveWhole" disable="true" layoutX="156.0" layoutY="294.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="oliveRight" disable="true" layoutX="156.0" layoutY="294.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="mushLeft" disable="true" layoutX="156.0" layoutY="294.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="mushWhole" disable="true" layoutX="156.0" layoutY="339.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="mushRight" disable="true" layoutX="226.0" layoutY="294.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <CheckBox fx:id="bacon" mnemonicParsing="false" onAction="#baconSelected" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="cheddar" mnemonicParsing="false" onAction="#cheddarSelected" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="tomato" mnemonicParsing="false" onAction="#tomatoSelected" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="pepperoniEx" disable="true" mnemonicParsing="false" prefHeight="23.0" prefWidth="31.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="sausageEx" disable="true" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="garlicEx" disable="true" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="pineappleEx" disable="true" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="hamEx" disable="true" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="oliveEx" disable="true" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="mushroomEx" disable="true" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="baconEx" disable="true" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="cheddarEx" disable="true" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox fx:id="tomatoEx" disable="true" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                                       <padding>
+                                          <Insets bottom="25.0" left="15.0" right="10.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <Label text="Extra" GridPane.columnIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Bacon" GridPane.rowIndex="8" />
+                                    <Label text="Cheddar" GridPane.rowIndex="9" />
+                                    <RadioButton fx:id="baconLeft" disable="true" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="cheddarLeft" disable="true" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="tomatoLeft" disable="true" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="baconWhole" disable="true" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="4" GridPane.rowIndex="8">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="cheddarWhole" disable="true" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="4" GridPane.rowIndex="9">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="tomatoWhole" disable="true" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="4" GridPane.rowIndex="10">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="baconRight" disable="true" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="8">
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="cheddarRight" disable="true" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="9">
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="tomatoRight" disable="true" mnemonicParsing="false" prefHeight="0.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="10">
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <Button fx:id="addOrder" mnemonicParsing="false" onAction="#addOrderButtonAction" text="Add" GridPane.columnIndex="5" GridPane.rowIndex="11">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                    <Label text="Tomato" GridPane.rowIndex="10" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </FlowPane>
+                     </center>
+                     <left>
+                        <FlowPane prefHeight="714.0" prefWidth="175.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Price">
+                                 <font>
+                                    <Font name="Elephant" size="24.0" />
+                                 </font></Label>
+                              <GridPane prefHeight="683.0" prefWidth="179.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="95.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="84.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Size">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Elephant" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Small" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Medium" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Large" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="X-Large" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Crust" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Elephant" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Plain" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Whole-wheat" GridPane.rowIndex="7">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Toppings" GridPane.rowIndex="9">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Elephant" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Stuffed Crust" GridPane.rowIndex="8">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Pepperoni" GridPane.rowIndex="10">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Sausage" GridPane.rowIndex="11">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Garlic" GridPane.rowIndex="12">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Pineapple" GridPane.rowIndex="13">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Ham" GridPane.rowIndex="14">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Olive" GridPane.rowIndex="15">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Mushroom" GridPane.rowIndex="16">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Bacon" GridPane.rowIndex="17">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Cheddar Cheese" GridPane.rowIndex="18">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Tomato" GridPane.rowIndex="19">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Extra" GridPane.rowIndex="20">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="sSizePrice" text="5.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="mSizePrice" text="6.00">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="lSizePrice" text="8.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label text="10.00" fx:id="xlSizePrice" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="pCrustPrice" text="3.50" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="wCrustPrice" text="4.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="scCrustPrice" text="5.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="pepPrice" text="1.50" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="sauPrice" text="1.50" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="garPrice" text="1.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="pinePrice" text="1.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="hamPrice" text="1.50" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="olivePrice" text="1.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="16">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="mushPrice" text="1.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="17">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="BaconPrice" text="1.50" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="18">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="ccPrice" text="1.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="19">
+                                       <children>
+                                          <Label text="\$ " />
+                                          <Label fx:id="tPrice" text="1.00" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="20">
+                                       <children>
+                                          <Label text="+$ " />
+                                          <Label fx:id="exPrice" text="0.50" />
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets top="8.0" />
+                                       </GridPane.margin>
+                                    </HBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets left="5.0" />
+                                 </opaqueInsets>
+                              </GridPane>
+                           </children>
+                        </FlowPane>
+                     </left>
+                  </BorderPane>
+               </children>
+               <effect>
+                  <Reflection />
+               </effect>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>

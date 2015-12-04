@@ -1,0 +1,29 @@
+       Pizza Sing Sang Song
+
+ Address: 1430 Trafalgar Road
+          Oakville, Ontario L6H 2L1
+ Phone Number: 905-845-9430
+ Employee Name: seong
+ Employee ID: 991379831
+-----------------------------------------
+ Order Option: Pick Up
+ Customer Name: 1 1
+ Customer Phone Number: 1
+ Order Time: 2015.6.21 7:20:22
+ Complete Time: 2015.6.21 7:50:22
+=======================================
+ Product             Qty        Price
+=======================================
+Pizza 1
+ Small                          $ 5.00
+ Whole-Wheat                    $ 4.00
+ Pepperoni Whole                $ 1.50
+                             ----------
+Pizza Price                    $ 10.50
+Side Dish
+ Wings        5        $ 40.00
+ Wings        5        $ 40.00
+=======================================
+ SubTotal                      $ 90.50
+ HST                           $  11.77
+ Total                         $ 102.27

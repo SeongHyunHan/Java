@@ -1,0 +1,7 @@
+.root{
+    -fx-background-color:aquamarine;
+}
+.button{
+    -fx-background-color:linear-gradient(gold, goldenrod);
+    
+}
